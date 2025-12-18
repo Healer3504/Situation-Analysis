@@ -74,7 +74,13 @@ person_id += 1  # Increment person ID
 cap.release() 
 return action_data 
 # Save the results to a CSV 
-def create_action_dataset(video_path, 
-output_csv="action_dataset.csv"): 
-output_csv="action_dataset.csv"): 
-results = process_video(video_path
+def create_action_dataset(video_path,
+output_csv="action_dataset.csv"):
+output_csv="action_dataset.csv"):
+ results = process_video(video_path)
+ df = pd.DataFrame(results) # Convert results to DataFrame
+ df.to_csv(output_csv, index=False) # Save to CSV file
+ print(f"Action dataset saved to {output_csv}")
+# Usage example
+video_path = 'C:\\Users\\vimal\\OneDrive\\Desktop\\video.mp4'
+create_action_dataset(video_path)
